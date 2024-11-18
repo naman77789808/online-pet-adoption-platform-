@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Online Pet Adoption Platform</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+    <header>
+        <h1>Online Pet Adoption Platform</h1>
+    </header>
+
+    <section class="project-description">
+        <h2>Project Description</h2>
+        <p>The <strong>Online Pet Adoption Platform</strong> is a web-based application designed to connect potential pet adopters with shelters and rescue organizations to facilitate the adoption of pets. The platform provides a user-friendly interface where users can browse available pets, learn about their backgrounds, and apply for adoption directly through the website. It also allows shelters and rescue organizations to list their animals, providing detailed profiles, medical information, and adoption status updates.</p>
+    </section>
+
+    <section class="key-features">
+        <h2>Key Features</h2>
+        <ul>
+            <li><strong>User Registration & Authentication:</strong> Users can sign up, log in, and manage their profiles. This allows adopters to track their adoption applications and shelters to manage pet listings.</li>
+            <li><strong>Pet Listings:</strong> Shelters can create detailed pet profiles that include images, descriptions, age, breed, medical history, and adoption status.</li>
+            <li><strong>Search & Filter:</strong> Potential adopters can search for pets based on various criteria such as breed, age, size, and location.</li>
+            <li><strong>Pet Details:</strong> Users can view detailed information about each pet, including photos, health records, and adoption requirements.</li>
+            <li><strong>Adoption Application:</strong> Interested adopters can submit adoption applications, including personal information and answers to questions about their home environment.</li>
+            <li><strong>Admin Dashboard:</strong> Admin users can manage shelters, monitor adoption applications, approve/reject applications, and ensure that pets are successfully rehomed.</li>
+            <li><strong>Shelter Management:</strong> Shelters can manage their pet listings, update adoption status, and communicate with adopters.</li>
+        </ul>
+    </section>
+
+    <section class="technologies-used">
+        <h2>Technologies Used</h2>
+        <ul>
+            <li><strong>Frontend:</strong> React.js for building a dynamic, responsive user interface.</li>
+            <li><strong>Backend:</strong> Node.js with Express for handling API requests and server-side logic.</li>
+            <li><strong>Database:</strong> MongoDB for storing user profiles, pet listings, and adoption applications.</li>
+            <li><strong>Authentication:</strong> JWT (JSON Web Tokens) for secure user authentication.</li>
+            <li><strong>Cloud Storage:</strong> AWS S3 for storing pet images.</li>
+            <li><strong>Deployment:</strong> The platform is hosted on AWS or similar cloud service providers to ensure scalability and reliability.</li>
+        </ul>
+    </section>
+
+</body>
+</html>
