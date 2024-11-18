@@ -21,9 +21,14 @@ The **Online Pet Adoption Platform** is a web-based application designed to conn
 - **Deployment**: The platform is hosted on AWS or similar cloud service providers to ensure scalability and reliability.
 
 ## Database Schema
+users table<br>
+pets table<br>
+Adoption Applications Table<br>
+Shelters Table<br>
+Admin Logs Table<br>
 
-### 1. Users Table (`users`)
-Stores information about both potential adopters and administrators.
+
+
 
 ```sql
 CREATE TABLE users (
