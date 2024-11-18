@@ -20,3 +20,28 @@ The **Online Pet Adoption Platform** is a web-based application designed to conn
 - **Cloud Storage**: AWS S3 for storing pet images.
 - **Deployment**: The platform is hosted on AWS or similar cloud service providers to ensure scalability and reliability.
 
+## Database Schema
+
+### 1. Users Table (`users`)
+Stores information about both potential adopters and administrators.
+
+```sql
+CREATE TABLE users (
+    user_id INT AUTO_INCREMENT PRIMARY KEY,
+    username VARCHAR(255) NOT NULL UNIQUE,
+    email VARCHAR(255) NOT NULL UNIQUE,
+    password_hash VARCHAR(255) NOT NULL,
+    role ENUM('adopter', 'admin') NOT NULL,
+    first_name VARCHAR(255),
+    last_name VARCHAR(255),
+    address_street VARCHAR(255),
+    address_city VARCHAR(255),
+    address_state VARCHAR(255),
+    address_zip_code VARCHAR(20),
+    address_country VARCHAR(255),
+    phone_number VARCHAR(20),
+    adoption_history TEXT, -- JSON or comma-separated pet IDs
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
+);
+ 
