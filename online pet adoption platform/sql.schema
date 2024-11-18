@@ -1,0 +1,61 @@
+-- Users Table (for account management)
+CREATE TABLE users (
+    user_id INT AUTO_INCREMENT PRIMARY KEY,        -- Unique user ID
+    first_name VARCHAR(255) NOT NULL,               -- User's first name
+    last_name VARCHAR(255) NOT NULL,                -- User's last name
+    email VARCHAR(255) UNIQUE NOT NULL,             -- User's email, must be unique
+    password_hash VARCHAR(255) NOT NULL,            -- Hashed password
+    role ENUM('ADMIN', 'USER') DEFAULT 'USER',      -- User role: Admin or Regular User
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP, -- Timestamp when user is created
+    updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
+);
+
+-- Pet Categories Table (for categorizing pets like "Dog", "Cat", etc.)
+CREATE TABLE pet_categories (
+    category_id INT AUTO_INCREMENT PRIMARY KEY,         -- Unique category ID
+    category_name VARCHAR(255) NOT NULL UNIQUE,          -- Category name (e.g., Dog, Cat, Bird)
+    description TEXT                                  -- Category description (optional)
+);
+
+-- Pets Table (for storing pet details)
+CREATE TABLE pets (
+    pet_id INT AUTO_INCREMENT PRIMARY KEY,              -- Unique pet ID
+    name VARCHAR(255) NOT NULL,                          -- Pet's name
+    age INT,                                            -- Pet's age
+    gender ENUM('MALE', 'FEMALE') NOT NULL,              -- Pet's gender
+    category_id INT,                                    -- Pet category (foreign key)
+    description TEXT,                                   -- Detailed description of the pet
+    adoption_status ENUM('AVAILABLE', 'ADOPTED', 'PENDING') DEFAULT 'AVAILABLE', -- Pet's adoption status
+    image_url VARCHAR(255),                              -- URL to the pet's image (optional)
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,      -- Timestamp when pet is added
+    updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+    FOREIGN KEY (category_id) REFERENCES pet_categories(category_id)  -- Foreign key to pet categories
+);
+
+-- Adoption Requests Table (for users submitting adoption requests)
+CREATE TABLE adoption_requests (
+    request_id INT AUTO_INCREMENT PRIMARY KEY,            -- Unique request ID
+    user_id INT,                                          -- User who is requesting adoption
+    pet_id INT,                                           -- Pet being requested for adoption
+    status ENUM('PENDING', 'APPROVED', 'REJECTED') DEFAULT 'PENDING', -- Request status
+    request_date TIMESTAMP DEFAULT CURRENT_TIMESTAMP,      -- Timestamp of when the request was made
+    adoption_date TIMESTAMP,                              -- Adoption date (if approved)
+    FOREIGN KEY (user_id) REFERENCES users(user_id),      -- Foreign key to users table
+    FOREIGN KEY (pet_id) REFERENCES pets(pet_id)          -- Foreign key to pets table
+);
+
+-- Audit Logs Table (to track system activities, for example, admin actions)
+CREATE TABLE audit_logs (
+    log_id INT AUTO_INCREMENT PRIMARY KEY,                -- Unique log ID
+    action VARCHAR(255) NOT NULL,                          -- Action performed (e.g., "Pet Added", "Adoption Approved")
+    action_timestamp TIMESTAMP DEFAULT CURRENT_TIMESTAMP,  -- Timestamp when the action occurred
+    user_id INT,                                          -- ID of the user who performed the action
+    details TEXT,                                         -- Additional details or context of the action
+    FOREIGN KEY (user_id) REFERENCES users(user_id)       -- Foreign key to users table
+);
+
+-- Example of Indexing (for faster searches by pet's name, adoption status, or category)
+CREATE INDEX idx_pets_name ON pets(name);
+CREATE INDEX idx_pets_status ON pets(adoption_status);
+CREATE INDEX idx_pets_category ON pets(category_id);
+CREATE INDEX idx_adoption_status ON adoption_requests(status);
