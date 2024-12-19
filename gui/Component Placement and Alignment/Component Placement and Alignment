@@ -1,0 +1,16 @@
+/* For smaller screens */
+@media (max-width: 767px) {
+    .navbar-brand {
+        font-size: 1.5rem;
+    }
+    .card {
+        margin-bottom: 15px;
+    }
+}
+
+/* For large screens */
+@media (min-width: 768px) {
+    .navbar {
+        padding: 15px 50px;
+    }
+}
