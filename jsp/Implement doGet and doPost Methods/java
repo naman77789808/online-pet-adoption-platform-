@@ -1,0 +1,15 @@
+// Inside PetAdoptionServlet.java
+
+protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+    // Display user registration form
+    RequestDispatcher dispatcher = request.getRequestDispatcher("/register.jsp");
+    dispatcher.forward(request, response);
+}
+
+protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+    // Get form data and save it to the database or session
+    String username = request.getParameter("username");
+    String email = request.getParameter("email");
+    // Process data, save user details (use a DAO class to interact with DB)
+    response.sendRedirect("/profile.jsp");
+}
