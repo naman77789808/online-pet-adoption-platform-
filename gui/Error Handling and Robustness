@@ -1,0 +1,27 @@
+private void registerUser(String username, String email) {
+    if (username.isEmpty() || email.isEmpty()) {
+        showError("Please fill in both fields!");
+    } else if (!email.contains("@")) {
+        showError("Invalid email format.");
+    } else {
+        User user = new User(username, email);
+        userService.saveUser(user);  // Save the user details using UserService
+        showSuccess("User registered successfully!");
+    }
+}
+
+private void showError(String message) {
+    Alert alert = new Alert(Alert.AlertType.ERROR);
+    alert.setTitle("Error");
+    alert.setHeaderText("Input Error");
+    alert.setContentText(message);
+    alert.showAndWait();
+}
+
+private void showSuccess(String message) {
+    Alert alert = new Alert(Alert.AlertType.INFORMATION);
+    alert.setTitle("Success");
+    alert.setHeaderText(null);
+    alert.setContentText(message);
+    alert.showAndWait();
+}
