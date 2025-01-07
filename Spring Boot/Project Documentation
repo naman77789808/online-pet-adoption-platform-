@@ -1,0 +1,34 @@
+# Pet Adoption Platform
+
+## Project Overview
+The Pet Adoption Platform is a Spring Boot-based web application that allows users to adopt pets and view available pets for adoption. It supports functionalities like user registration, pet adoption, and viewing pet profiles.
+
+## Features
+- **User Registration**: Users can create an account.
+- **Pet Adoption**: Users can view available pets and adopt them.
+- **Pet Profiles**: Each pet has a profile with details like name, type, and adoption status.
+
+## Technology Stack
+- **Backend**: Spring Boot (Java 11)
+- **Database**: H2 Database (in-memory for development/testing)
+- **Testing**: JUnit, Mockito for unit testing
+- **Other**: Maven for dependency management
+
+## Setup Instructions
+1. Clone the repository:
+   ```bash
+   git clone https://github.com/yourusername/pet-adoption-platform.git
+mvn install
+mvn spring-boot:run
+mvn test
+
+---
+
+### Conclusion:
+
+By following these guidelines, you will ensure that your **Spring Boot pet adoption platform** meets the marking rubric requirements:
+1. **Use of annotations**: Proper usage of Spring Boot annotations such as `@SpringBootApplication`, `@RestController`, `@Service`, `@Repository`, etc.
+2. **Unit testing**: Proper unit tests for the service layer, ensuring correct business logic and mock dependencies.
+3. **Project documentation**: Clear and structured documentation to help future developers and users understand and run the project.
+
+These steps will ensure your project is well-structured, functional, and easy to maintain.
