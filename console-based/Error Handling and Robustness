@@ -1,0 +1,35 @@
+private static void registerUser() {
+    System.out.println("Enter username: ");
+    String username = scanner.nextLine();
+    System.out.println("Enter email: ");
+    String email = scanner.nextLine();
+    
+    if (username.isEmpty() || email.isEmpty()) {
+        System.out.println("Error: Username or Email cannot be empty.");
+        return;
+    }
+
+    system.registerUser(username, email);
+}
+
+private static void adoptPet() {
+    System.out.println("Enter your username: ");
+    String username = scanner.nextLine();
+    User user = system.getUser(username);
+
+    if (user == null) {
+        System.out.println("Error: User not found.");
+        return;
+    }
+
+    system.displayAvailablePets();
+    System.out.println("Enter the pet you want to adopt: ");
+    String pet = scanner.nextLine();
+    
+    if (!pet.equals("Dog") && !pet.equals("Cat") && !pet.equals("Rabbit")) {
+        System.out.println("Error: Invalid pet selection.");
+        return;
+    }
+    
+    system.adoptPet(user, pet);
+}
