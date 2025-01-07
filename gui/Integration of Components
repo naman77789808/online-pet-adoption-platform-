@@ -1,0 +1,21 @@
+// In PetAdoptionApp.java
+private void showUserProfile(String username, String email) {
+    Text usernameText = new Text("Username: " + username);
+    Text emailText = new Text("Email: " + email);
+    Button adoptPetButton = new Button("Adopt a Pet");
+
+    adoptPetButton.setOnAction(e -> showAdoptionForm(username));
+
+    VBox profileBox = new VBox(10);
+    profileBox.getChildren().addAll(usernameText, emailText, adoptPetButton);
+    Scene profileScene = new Scene(profileBox, 300, 200);
+    Stage profileStage = new Stage();
+    profileStage.setScene(profileScene);
+    profileStage.setTitle("User Profile");
+    profileStage.show();
+}
+
+private void showAdoptionForm(String username) {
+    // Display Pet Adoption form (integration of components)
+    // This would allow the user to choose a pet and adopt it
+}
