@@ -1,0 +1,6 @@
+Good code should be readable, well-structured, and modular. This is accomplished by breaking down the program into smaller, manageable components and following clear naming conventions.
+
+Example:
+Classes: Separate classes for User, PetAdoptionSystem, and PetAdoptionApp keep responsibilities clear.
+Methods: Each method has a single responsibility. For instance, registerUser() handles registration, adoptPet() handles the adoption logic, etc.
+Clear Naming: Method and variable names clearly indicate their purpose (e.g., adoptPet, displayProfile).
