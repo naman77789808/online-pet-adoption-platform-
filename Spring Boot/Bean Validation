@@ -1,0 +1,29 @@
+package com.petadoption.model;
+
+import javax.validation.constraints.Email;
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Size;
+
+public class User {
+
+    @NotNull(message = "Username cannot be null")
+    @Size(min = 3, max = 50, message = "Username must be between 3 and 50 characters")
+    private String username;
+
+    @NotNull(message = "Email cannot be null")
+    @Email(message = "Invalid email format")
+    private String email;
+
+    // Getters and setters
+}
+import javax.validation.Valid;
+
+@PostMapping("/register")
+public String registerUser(@Valid User user, BindingResult result, Model model) {
+    if (result.hasErrors()) {
+        return "register";
+    }
+    userService.saveUser(user);
+    model.addAttribute("message", "User registration successful");
+    return "profile";
+}
