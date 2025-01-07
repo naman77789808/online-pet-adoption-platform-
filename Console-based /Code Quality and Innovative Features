@@ -1,0 +1,102 @@
+// Pet.java
+public class Pet {
+    private String name;
+    private String type;
+    private boolean isAdopted;
+
+    public Pet(String name, String type) {
+        this.name = name;
+        this.type = type;
+        this.isAdopted = false;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public String getType() {
+        return type;
+    }
+
+    public boolean isAdopted() {
+        return isAdopted;
+    }
+
+    public void adopt() {
+        this.isAdopted = true;
+    }
+
+    @Override
+    public String toString() {
+        return "Pet [Name: " + name + ", Type: " + type + ", Adopted: " + isAdopted + "]";
+    }
+}
+
+// PetAdoptionService.java
+import java.util.ArrayList;
+import java.util.List;
+
+public class PetAdoptionService {
+    private List<Pet> availablePets;
+
+    public PetAdoptionService() {
+        this.availablePets = new ArrayList<>();
+        // Adding some pets to the list for example
+        availablePets.add(new Pet("Buddy", "Dog"));
+        availablePets.add(new Pet("Whiskers", "Cat"));
+    }
+
+    public void viewAvailablePets() {
+        for (Pet pet : availablePets) {
+            System.out.println(pet);
+        }
+    }
+
+    public boolean adoptPet(String petName) {
+        for (Pet pet : availablePets) {
+            if (pet.getName().equalsIgnoreCase(petName) && !pet.isAdopted()) {
+                pet.adopt();
+                return true;
+            }
+        }
+        return false;
+    }
+}
+
+// PetAdoptionApp.java
+import java.util.Scanner;
+
+public class PetAdoptionApp {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        PetAdoptionService service = new PetAdoptionService();
+        
+        while (true) {
+            System.out.println("Welcome to the Pet Adoption Platform!");
+            System.out.println("1. View Available Pets");
+            System.out.println("2. Adopt a Pet");
+            System.out.println("3. Exit");
+            System.out.print("Please choose an option: ");
+            int choice = scanner.nextInt();
+            scanner.nextLine(); // consume newline
+
+            if (choice == 1) {
+                service.viewAvailablePets();
+            } else if (choice == 2) {
+                System.out.print("Enter the name of the pet you want to adopt: ");
+                String petName = scanner.nextLine();
+                if (service.adoptPet(petName)) {
+                    System.out.println("Successfully adopted " + petName + "!");
+                } else {
+                    System.out.println("Sorry, the pet is either adopted or doesn't exist.");
+                }
+            } else if (choice == 3) {
+                System.out.println("Thank you for using the Pet Adoption Platform!");
+                break;
+            } else {
+                System.out.println("Invalid choice, please try again.");
+            }
+        }
+        scanner.close();
+    }
+}
