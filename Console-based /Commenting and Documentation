@@ -29,3 +29,6 @@ public class Pet {
 
     // other methods
 }
+// Adding some pets to the list for example
+availablePets.add(new Pet("Buddy", "Dog"));
+availablePets.add(new Pet("Whiskers", "Cat"));
