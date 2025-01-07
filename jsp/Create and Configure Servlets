@@ -1,10 +1,1 @@
-@WebServlet("/adopt")
-public class PetAdoptionServlet extends HttpServlet {
-    protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        // logic for handling GET request (e.g., display adoption form)
-    }
 
-    protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        // logic for handling POST request (e.g., submit user registration)
-    }
-}
