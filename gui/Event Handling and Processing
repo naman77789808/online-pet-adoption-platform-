@@ -1,0 +1,24 @@
+private void showAdoptionForm(String username) {
+    Stage adoptionStage = new Stage();
+    VBox adoptionBox = new VBox(10);
+    Text message = new Text("Choose a pet to adopt:");
+
+    Button adoptDogButton = new Button("Adopt Dog");
+    adoptDogButton.setOnAction(e -> adoptPet(username, "Dog"));
+    
+    Button adoptCatButton = new Button("Adopt Cat");
+    adoptCatButton.setOnAction(e -> adoptPet(username, "Cat"));
+    
+    adoptionBox.getChildren().addAll(message, adoptDogButton, adoptCatButton);
+    
+    Scene adoptionScene = new Scene(adoptionBox, 300, 200);
+    adoptionStage.setScene(adoptionScene);
+    adoptionStage.setTitle("Pet Adoption");
+    adoptionStage.show();
+}
+
+private void adoptPet(String username, String petType) {
+    // Process the adoption of a pet
+    System.out.println(username + " adopted a " + petType);
+    showSuccess("You have successfully adopted a " + petType + "!");
+}
