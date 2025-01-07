@@ -1,0 +1,11 @@
+<%@ page contentType="text/html" language="java" %>
+<html>
+<head>
+    <title>User Profile</title>
+</head>
+<body>
+    <h2>Welcome, ${userName}!</h2>
+    <p>Here is your profile information:</p>
+    <!-- Display other user data -->
+</body>
+</html>
