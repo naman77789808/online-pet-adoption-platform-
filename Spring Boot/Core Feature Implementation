@@ -1,0 +1,21 @@
+package com.petadoption.service;
+
+import com.petadoption.model.User;
+import org.springframework.stereotype.Service;
+
+@Service
+public class UserService {
+
+    // Simulating a database with an in-memory store
+    private static User currentUser;
+
+    public void saveUser(User user) {
+        // Save the user (could involve saving to a database)
+        currentUser = user;
+    }
+
+    public User getCurrentUser() {
+        // Get the current logged-in user
+        return currentUser;
+    }
+}
