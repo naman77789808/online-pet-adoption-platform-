@@ -1,0 +1,31 @@
+/**
+ * Represents a Pet in the pet adoption platform.
+ */
+public class Pet {
+    private String name;
+    private String type;
+    private boolean isAdopted;
+
+    /**
+     * Constructs a new Pet.
+     *
+     * @param name the name of the pet
+     * @param type the type of the pet (e.g., Dog, Cat)
+     */
+    public Pet(String name, String type) {
+        this.name = name;
+        this.type = type;
+        this.isAdopted = false;
+    }
+
+    /**
+     * Returns the name of the pet.
+     *
+     * @return the pet's name
+     */
+    public String getName() {
+        return name;
+    }
+
+    // other methods
+}
