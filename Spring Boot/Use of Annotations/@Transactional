@@ -1,0 +1,6 @@
+@Transactional
+public void adoptPet(Pet pet) {
+    pet.setAdopted(true);
+    petRepository.save(pet);
+}
+
