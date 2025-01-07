@@ -1,0 +1,54 @@
+package com.petadoption.ui;
+
+import com.petadoption.model.User;
+import com.petadoption.service.UserService;
+import javafx.application.Application;
+import javafx.beans.binding.Bindings;
+import javafx.beans.property.StringProperty;
+import javafx.stage.Stage;
+import javafx.scene.Scene;
+import javafx.scene.control.*;
+import javafx.scene.layout.VBox;
+import javafx.scene.text.Text;
+
+public class PetAdoptionApp extends Application {
+
+    private UserService userService = new UserService();
+
+    @Override
+    public void start(Stage primaryStage) {
+        primaryStage.setTitle("Pet Adoption Platform");
+
+        // Create User Registration Form
+        Label usernameLabel = new Label("Username:");
+        TextField usernameField = new TextField();
+        Label emailLabel = new Label("Email:");
+        TextField emailField = new TextField();
+        
+        Button registerButton = new Button("Register");
+        
+        registerButton.setOnAction(e -> registerUser(usernameField.getText(), emailField.getText()));
+        
+        Text messageText = new Text();
+        messageText.setStyle("-fx-fill: green;");
+        
+        VBox vbox = new VBox(10);
+        vbox.getChildren().addAll(usernameLabel, usernameField, emailLabel, emailField, registerButton, messageText);
+        
+        // Bind the button's disable property to the fields' validation
+        registerButton.disableProperty().bind(Bindings.isEmpty(usernameField.textProperty()).or(Bindings.isEmpty(emailField.textProperty())));
+
+        Scene scene = new Scene(vbox, 300, 250);
+        primaryStage.setScene(scene);
+        primaryStage.show();
+    }
+
+    private void registerUser(String username, String email) {
+        User user = new User(username, email);
+        userService.saveUser(user);  // Save the user details using UserService
+    }
+
+    public static void main(String[] args) {
+        launch(args);
+    }
+}
