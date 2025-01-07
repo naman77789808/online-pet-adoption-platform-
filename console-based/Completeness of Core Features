@@ -1,0 +1,10 @@
+To ensure completeness, we implement all required functionalities:
+
+User Registration is fully functional.
+Pet Adoption logic is implemented with available pets being displayed and updated after adoption.
+User Profiles display the user's information and adopted pets.
+Edge Cases such as adopting an unavailable pet or invalid user input are handled.
+Example of Completeness:
+User Registration: Users can register and are added to the system.
+Pet Adoption: Users can adopt pets, and the system ensures pets are removed from the available list after adoption.
+Profile Viewing: Users can view their details and adopted pets
