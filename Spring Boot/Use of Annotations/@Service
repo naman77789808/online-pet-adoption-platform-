@@ -1,0 +1,19 @@
+@Service
+public class PetService {
+
+    private final PetRepository petRepository;
+
+    @Autowired
+    public PetService(PetRepository petRepository) {
+        this.petRepository = petRepository;
+    }
+
+    public List<Pet> getAvailablePets() {
+        return petRepository.findAvailablePets();
+    }
+
+    public void adoptPet(Pet pet) {
+        pet.setAdopted(true);
+        petRepository.save(pet);
+    }
+}
