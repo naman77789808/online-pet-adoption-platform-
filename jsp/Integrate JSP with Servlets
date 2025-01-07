@@ -1,0 +1,4 @@
+// Inside PetAdoptionServlet.java
+request.setAttribute("userName", username);
+RequestDispatcher dispatcher = request.getRequestDispatcher("/profile.jsp");
+dispatcher.forward(request, response);
