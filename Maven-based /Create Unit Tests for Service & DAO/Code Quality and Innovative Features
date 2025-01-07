@@ -1,0 +1,37 @@
+import javafx.application.Application;
+import javafx.scene.Scene;
+import javafx.scene.control.*;
+import javafx.scene.layout.VBox;
+import javafx.stage.Stage;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
+
+public class PetSearchApp extends Application {
+
+    @Override
+    public void start(Stage primaryStage) {
+        // Sample pet data
+        ObservableList<String> pets = FXCollections.observableArrayList("Dog - Buddy", "Cat - Whiskers", "Dog - Max", "Rabbit - Fluffy");
+
+        ListView<String> petListView = new ListView<>(pets);
+        TextField searchField = new TextField();
+        searchField.setPromptText("Search pets by type");
+
+        // Filter pets based on search input
+        searchField.textProperty().addListener((observable, oldValue, newValue) -> {
+            ObservableList<String> filteredPets = pets.filtered(pet -> pet.toLowerCase().contains(newValue.toLowerCase()));
+            petListView.setItems(filteredPets);
+        });
+
+        VBox vbox = new VBox(10, searchField, petListView);
+        Scene scene = new Scene(vbox, 300, 200);
+
+        primaryStage.setTitle("Pet Search");
+        primaryStage.setScene(scene);
+        primaryStage.show();
+    }
+
+    public static void main(String[] args) {
+        launch(args);
+    }
+}
