@@ -1,0 +1,19 @@
+pet-adoption-platform/
+|-- src/
+|   |-- main/
+|       |-- java/
+|           |-- com/petadoption/
+|               |-- controller/
+|                   |-- PetAdoptionController.java
+|               |-- exception/
+|                   |-- GlobalExceptionHandler.java
+|               |-- model/
+|                   |-- User.java
+|               |-- service/
+|                   |-- UserService.java
+|-- resources/
+|   |-- templates/
+|       |-- register.html
+|       |-- profile.html
+|   |-- application.properties
+|-- pom.xml
