@@ -1,0 +1,12 @@
+pet-adoption-platform/
+|-- src/
+|   |-- com/petadoption/
+|       |-- ui/
+|           |-- PetAdoptionApp.java
+|       |-- model/
+|           |-- User.java
+|       |-- service/
+|           |-- UserService.java
+|-- resources/
+|   |-- application.properties
+|-- pom.xml
